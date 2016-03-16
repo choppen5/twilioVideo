@@ -75,6 +75,10 @@ function conversationStarted(conversation) {
     conversation.on('participantConnected', function (participant) {
         log("Participant '" + participant.identity + "' connected");
         participant.media.attach('#remote-media');
+
+        document.getElementById('button-hangup').onclick = function () {
+            activeConversation.disconnect();
+        }
     });
 
     // When a participant disconnects, note in log
